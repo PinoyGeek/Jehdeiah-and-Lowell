@@ -40,15 +40,16 @@ export function Details() {
   const [rotationOffset, setRotationOffset] = useState(0)
   
   const coupleImages = [
-    "/mobile-background/couple (7).jpg",
-    "/mobile-background/couple (10).jpg",
-    "/mobile-background/couple (13).jpg",
-    "/mobile-background/couple (16).jpg",
+    "/mobile-background/couple (1).jpg",
+    "/mobile-background/couple (2).jpg",
+    "/mobile-background/couple (3).jpg",
+    "/mobile-background/couple (4).jpg",
+
   ]
 
   const receptionImages = [
-    "/Details/La Vida Resort and Events Center.png",
-    "/Details/La Vida Resort and Events Center 2.png"
+    "/Details/recepcion.png",
+    "/Details/reception2.png"
   ]
 
   useEffect(() => {
@@ -105,7 +106,7 @@ export function Details() {
   const formattedCeremonyDate = siteConfig.ceremony.date
   const formattedReceptionDate = siteConfig.ceremony.date // reception follows ceremony on same day
 
-  const DECO_FILTER = "brightness(0) saturate(100%) invert(39%) sepia(18%) saturate(486%) hue-rotate(62deg) brightness(94%) contrast(88%)"
+  const DECO_FILTER = "brightness(0) saturate(100%) invert(9%) sepia(38%) saturate(1700%) hue-rotate(202deg) brightness(85%) contrast(95%)"
 
   const openInMaps = (link: string) => {
     window.open(link, '_blank', 'noopener,noreferrer')
@@ -251,27 +252,27 @@ export function Details() {
                 {/* Month - Script style with warm gold */}
                 <div className="mb-2 sm:mb-4">
                   <p className={`${cinzel.className} text-xl sm:text-2xl md:text-3xl lg:text-4xl text-motif-medium leading-none`}>
-                    May
+                    {new Date(siteConfig.ceremony.date).toLocaleString('default', { month: 'long' })}
                   </p>
                 </div>
                 
                 {/* Day and Year */}
                 <div className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6 md:mb-7">
                   <p className={`${cinzel.className} text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal text-motif-deep leading-none`}>
-                    18
+                    {new Date(siteConfig.ceremony.date).getDate()}
                   </p>
                   <div className="h-10 sm:h-12 md:h-16 lg:h-20 w-[2px] bg-gradient-to-b from-motif-medium via-motif-deep to-motif-medium" />
                   <p className={`${cinzel.className} text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light text-motif-deep leading-none`}>
-                    2026
+                    {new Date(siteConfig.ceremony.date).getFullYear()}
                   </p>
                 </div>
 
                 {/* Decorative line */}
-                <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                {/* <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
                   <div className="h-[1px] w-8 sm:w-10 md:w-14 bg-gradient-to-r from-transparent via-motif-medium to-motif-medium" />
                   <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-motif-medium rounded-full" />
                   <div className="h-[1px] w-8 sm:w-10 md:w-14 bg-gradient-to-l from-transparent via-motif-medium to-motif-medium" />
-                </div>
+                </div> */}
 
                 {/* Time */}
                 <p className={`${cinzel.className} text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-motif-deep tracking-wide`}>
@@ -307,7 +308,7 @@ export function Details() {
                         size={80}
                         level="M"
                         includeMargin={false}
-                        fgColor="#5B6655"
+                        fgColor="#051C46"
                         bgColor="#ECE5DB"
                       />
                     </div>
@@ -360,7 +361,7 @@ export function Details() {
                   }`}
                 >
                   <Image
-                    src="/Details/reception.png"
+                    src={src}
                     alt={siteConfig.reception.venue}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -432,7 +433,7 @@ export function Details() {
                         size={80}
                         level="M"
                         includeMargin={false}
-                        fgColor="#5B6655"
+                        fgColor="#051C46"
                         bgColor="#ECE5DB"
                       />
                     </div>
@@ -539,9 +540,9 @@ export function Details() {
                 <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-motif-deep leading-relaxed mb-2">
                   <span className="font-semibold">Dress code:</span> Semi‑formal.
                 </p>
-                <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-motif-deep leading-relaxed mb-2">
+                {/* <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-motif-deep leading-relaxed mb-2">
                   <span className="font-semibold">Palette inspiration:</span> {siteConfig.dressCode.colors}
-                </p>
+                </p> */}
                 <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-motif-deep leading-relaxed italic">
                   {siteConfig.dressCode.note}
                 </p>

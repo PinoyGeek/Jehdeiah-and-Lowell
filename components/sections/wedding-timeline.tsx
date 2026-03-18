@@ -18,6 +18,22 @@ const cinzel = Cinzel({
   weight: ["400"],
 })
 
+/** Adds `hoursToAdd` to a 12-hour time string like "3:00 PM" */
+function addHours(timeStr: string, hoursToAdd: number): string {
+  const [timePart, period] = timeStr.trim().split(" ")
+  const [rawHours, minutes] = timePart.split(":").map(Number)
+  // Convert to 24-hour for arithmetic
+  let hours24 = period.toUpperCase() === "PM" && rawHours !== 12
+    ? rawHours + 12
+    : period.toUpperCase() === "AM" && rawHours === 12
+    ? 0
+    : rawHours
+  hours24 = (hours24 + hoursToAdd) % 24
+  const newPeriod = hours24 >= 12 ? "PM" : "AM"
+  const newHours = hours24 % 12 === 0 ? 12 : hours24 % 12
+  return `${newHours}:${String(minutes).padStart(2, "0")} ${newPeriod}`
+}
+
 const { groomNickname, brideNickname } = siteConfig.couple
 const ceremonyTime = siteConfig.ceremony.time
 const guestsTime = siteConfig.ceremony.guestsTime ?? "1:30 PM"
@@ -48,7 +64,7 @@ interface TimelineEvent {
 
 const timelineEvents: TimelineEvent[] = [
   {
-    time: guestsTime,
+    time: siteConfig.ceremony.entourageTime,
     title: "Arrival",
     description: "Please arrive on time to find your seat, settle in, and get ready for the celebration.",
     location: ceremonyVenue,
@@ -64,7 +80,7 @@ const timelineEvents: TimelineEvent[] = [
     imageSrc: "/weddingtimeline/WeddingCeremony.png",
   },
   {
-    time: "3:00 PM",
+    time: addHours(ceremonyTime, 1),
     title: "Cocktail Hour",
     description: "Enjoy drinks and light bites as we transition into the reception and mingle with guests.",
     location: receptionVenue,
@@ -72,7 +88,7 @@ const timelineEvents: TimelineEvent[] = [
     imageSrc: "/weddingtimeline/CockTailHour.png",
   },
   {
-    time: "4:00 PM",
+    time: addHours(ceremonyTime, 2),
     title: "Program Starts",
     description: `Celebrate the grand entrance of ${groomNickname} & ${brideNickname} and the start of the evening festivities.`,
     location: receptionVenue,
@@ -80,7 +96,7 @@ const timelineEvents: TimelineEvent[] = [
     imageSrc: "/weddingtimeline/reception welcom.png",
   },
   {
-    time: "6:00 PM",
+    time: addHours(ceremonyTime, 3),
     title: "Dinner Service",
     description: "Share a relaxed meal together as we continue the celebration.",
     location: receptionVenue,
@@ -88,7 +104,7 @@ const timelineEvents: TimelineEvent[] = [
     imageSrc: "/weddingtimeline/DinnerService.png",
   },
   {
-    time: "7:00 PM",
+    time: addHours(ceremonyTime, 4),
     title: "Party",
     description: "Let's dance the night away and celebrate this new chapter!",
     location: receptionVenue,

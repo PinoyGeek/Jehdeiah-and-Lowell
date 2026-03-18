@@ -16,29 +16,25 @@ interface HeroProps {
   // Palette tuned for champagne gold + beige + soft brown
  // Palette tuned to motif: sage green, muted sage, warm ivory, powder blue, steel blue, luxury silver
  const palette = {
-  deep: '#5B6655',    // sage green — primary elegance, headings, borders
+  deep: '#051C46',    // deep navy — primary background
   medium: '#9CAA99',  // soft muted sage — secondary text, subtle elements
-  accent: '#8799A7',  // steel blue — deeper accent, hashtag, dividers
-  cream: '#ECE5DB',   // warm ivory — surfaces, overlays, light text on dark
-  soft: '#C4D1E2',    // powder blue — highlights, glow accents, progress fill
+  accent: '#E6A6B2',  // soft blush pink — romantic highlights
+  cream: '#F8F6F4',   // warm ivory — main background
+  soft: '#E3ECF7',    // misty blue — cards / sections
   silver: '#A9A9A9',  // luxury silver — neutral separators, track backgrounds
 };
 
 
 const desktopImages: string[] = [
-  '/desktop-background/couple (1).jpg',
-  '/desktop-background/couple (2).jpg',
-  '/desktop-background/couple (3).jpg',
-  '/desktop-background/couple (4).jpg',
-  '/desktop-background/couple (5).jpg'
+  '/desktop-background/couple.jpg'
 ];
 
 const mobileImages: string[] = [
-  '/mobile-background/couple (21).jpg',
-  '/mobile-background/couple (11).jpg',
-  '/mobile-background/couple (16).jpg',
-  '/mobile-background/couple (21).jpg',
-  '/mobile-background/couple (14).jpg'
+  '/mobile-background/couple (1).jpg',
+  '/mobile-background/couple (2).jpg',
+  '/mobile-background/couple (3).jpg',
+  '/mobile-background/couple (4).jpg',
+  '/mobile-background/couple (5).jpg'
 ];
 
 export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
@@ -155,7 +151,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
               }}
             >
               <Image
-                src="/monogram/newmonogram.png"
+                src="/monogram/monogram.png"
                 alt="Monogram"
                 fill
                 className="object-contain"

@@ -39,7 +39,7 @@ export function Welcome() {
           height={300}
           className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] lg:max-w-[260px] opacity-60 scale-y-[-1]"
           priority={false}
-          // style={{ filter: DECO_FILTER }}
+          style={{ filter: DECO_FILTER }}
         />
       </div>
       <div className="absolute right-0 top-0 z-0 pointer-events-none">
@@ -50,7 +50,7 @@ export function Welcome() {
           height={300}
           className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] lg:max-w-[260px] opacity-60 scale-x-[-1] scale-y-[-1]"
           priority={false}
-          // style={{ filter: DECO_FILTER }}
+          style={{ filter: DECO_FILTER }}
         />
       </div>
       <div className="absolute left-0 bottom-0 z-0 pointer-events-none">
@@ -61,7 +61,7 @@ export function Welcome() {
           height={300}
           className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] lg:max-w-[260px] opacity-60"
           priority={false}
-          // style={{ filter: DECO_FILTER }}
+          style={{ filter: DECO_FILTER }}
         />
       </div>
       <div className="absolute right-0 bottom-0 z-0 pointer-events-none">
@@ -72,7 +72,7 @@ export function Welcome() {
           height={300}
           className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] lg:max-w-[260px] opacity-60 scale-x-[-1]"
           priority={false}
-          // style={{ filter: DECO_FILTER }}
+          style={{ filter: DECO_FILTER }}
         />
       </div>
 

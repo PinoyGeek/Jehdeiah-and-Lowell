@@ -27,7 +27,7 @@ const palette = {
 } as const
 
 const DECO_FILTER =
-  "brightness(0) saturate(100%) invert(39%) sepia(18%) saturate(486%) hue-rotate(62deg) brightness(94%) contrast(88%)"
+  "brightness(0) saturate(100%) invert(9%) sepia(38%) saturate(1700%) hue-rotate(202deg) brightness(85%) contrast(95%)"
 
 // Helper function to convert text to title case (first letter of each word uppercase)
 const toTitleCase = (str: string) => {
@@ -155,7 +155,7 @@ export function Footer() {
         >
           <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 opacity-95">
             <Image
-              src="/monogram/newmonogram.png"
+              src="/monogram/monogram.png"
               alt={`${groomNickname} & ${brideNickname} monogram`}
               fill
               className="object-contain"
@@ -174,7 +174,7 @@ export function Footer() {
             {ceremonyDate}
           </p>
           <p className={`${cormorant.className} text-xs sm:text-sm md:text-base mt-1 sm:mt-2`} style={{ color: palette.deep }}>
-            {combinedVenue ?? ceremonyVenue}
+            {siteConfig.ceremony.location}
           </p>
         </div>
       </div>
@@ -197,7 +197,7 @@ export function Footer() {
                 </div>
                 <div className={`flex items-center gap-2 sm:gap-2.5 md:gap-3 ${cormorant.className}`} style={{ color: palette.softBrown }}>
                   <MapPin className="w-4 h-4 sm:w-5 sm:h-5 md:w-5 md:h-5 flex-shrink-0" style={{ color: palette.deep }} />
-                  <span className="text-xs sm:text-sm md:text-base leading-relaxed text-motif-deep">{toTitleCase(ceremonyVenue)}</span>
+                  <span className="text-xs sm:text-sm md:text-base leading-relaxed text-motif-deep">{toTitleCase(siteConfig.ceremony.location)}</span>
                 </div>
               </div>
             </div>
@@ -248,7 +248,7 @@ export function Footer() {
                   <div className={`space-y-2 sm:space-y-2.5 md:space-y-3 ${cormorant.className} text-xs sm:text-sm leading-relaxed`} style={{ color: palette.softBrown }}>
                     <div className="flex items-start gap-2 sm:gap-2.5 md:gap-3">
                       <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0 mt-0.5 text-motif-deep" style={{ color: palette.background }} />
-                      <span className="text-motif-deep">{toTitleCase(ceremonyVenue)}</span>
+                      <span className="text-motif-deep">{toTitleCase(siteConfig.ceremony.location)}: {toTitleCase(siteConfig.ceremony.venue)}</span>
                     </div>
                     <div className="flex items-center gap-2 sm:gap-2.5 md:gap-3">
                       <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" style={{ color: palette.deep }} />
@@ -266,7 +266,7 @@ export function Footer() {
                   <div className={`space-y-2 sm:space-y-2.5 md:space-y-3 ${cormorant.className} text-xs sm:text-sm leading-relaxed`} style={{ color: palette.softBrown }}>
                     <div className="flex items-start gap-2 sm:gap-2.5 md:gap-3">
                       <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0 mt-0.5" style={{ color: palette.champagneGold }} />
-                      <span>{toTitleCase(receptionVenue)}</span>
+                      <span>{toTitleCase(siteConfig.reception.location)}: {toTitleCase(siteConfig.reception.venue)}</span>
                     </div>
                     <div className="flex items-center gap-2 sm:gap-2.5 md:gap-3">
                       <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" style={{ color: palette.champagneGold }} />

@@ -34,12 +34,12 @@ export function LoveStory() {
         theme="light"
         layout="image-left"
         isFirst={true}
-        title="First Met (2014)"
-        imageSrc="/LoveStory/img1.png"
+        // title="First Met (2014)"
+        imageSrc="/mobile-background/couple (1).jpg"
         text={
           <>
             <p className="mb-4">
-            Met as first-year students at the Adventist University of the Philippines. What began as a simple classroom encounter slowly turned into a meaningful friendship
+            Some love stories begin with perfect timing. Ours began with years of almost, missed chances, and a love that kept quietly finding its way back.
             </p>
            
           </>
@@ -50,12 +50,12 @@ export function LoveStory() {
       <StorySection
         theme="dark"
         layout="image-right"
-        imageSrc="/LoveStory/img2.png"
-        title="Became a Couple (2019)"
+        imageSrc="/mobile-background/couple (2).jpg"
+        // title="Became a Couple (2019)"
         text={
           <>
             <p>
-            After years of getting to know each other, we finally made it official. Our story began at AUP, and we made it official at MVC as we toured around Mindanao together
+            We first met in high school, where Jehd secretly admired Mark from afar. But life eventually led us down different paths – filled with growing up, heartbreaks, wrong timings, and lessons we both needed to learn.
             </p>
           </>
         }
@@ -66,17 +66,52 @@ export function LoveStory() {
         theme="light"
         layout="image-left"
         isLast={true}
-        imageSrc="/LoveStory/img3.png"
-        title="The Proposal (2025)"
+        imageSrc="/mobile-background/couple (3).jpg"
+        // title="The Proposal (2025)"
         text={
           <>
             <p>
-            As we continue chasing our dreams, we also choose to begin our greatest journey — becoming one. With love, faith, and God at the center, we said yes to forever
+            Years later, in the middle of life’s unexpected turns, we found each other again. What started as a simple “hello” became a safe place, a deeper friendship, and eventually the love we had unknowingly been waiting for all along.
             </p>
            
           </>
         }
       />
+
+      {/* SECTION 2: Middle - Light */}
+      <StorySection
+        theme="dark"
+        layout="image-right"
+        imageSrc="/mobile-background/couple (4).jpg"
+        // title="Became a Couple (2019)"
+        text={
+          <>
+            <p>
+            Through patience, healing, and grace, our story became proof that sometimes the right love doesn’t come at the perfect time – it comes at the right time.
+            </p>
+          </>
+        }
+      />
+
+      {/* SECTION 3: Bottom - Dark */}
+      <StorySection
+        theme="light"
+        layout="image-left"
+        isLast={true}
+        imageSrc="/mobile-background/couple (5).jpg"
+        // title="The Proposal (2025)"
+        text={
+          <>
+            <p>
+            After almost a decade together, the love that once waited quietly has finally found its forever. This wedding is truly a GOD-given blessing – generously gifted by people who believed and chose to celebrate our love story. With humble and grateful hearts, we thank GOD for this beautiful blessing and for the people He placed in our lives.  We are honored to celebrate this joyful beginning with you.
+            </p>
+           
+          </>
+        }
+      />
+
+
+
       
       {/* Footer Decoration */}
       <div className="bg-motif-cream pt-8 sm:pt-10 md:pt-12 pb-16 sm:pb-20 md:pb-24 text-center text-motif-deep z-0 relative px-4">

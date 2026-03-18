@@ -88,12 +88,12 @@
   --font-serif: "Great Vibes", "Great Vibes Fallback";
 
   /* ─── Motif palette — edit here, affects every component ─── */
-  --color-motif-deep:   #5B6655; /* sage green   — primary, headings, overlays  */
-  --color-motif-medium: #9CAA99; /* muted sage   — secondary text               */
-  --color-motif-accent: #8799A7; /* steel blue   — deeper accent, dividers       */
-  --color-motif-cream:  #ECE5DB; /* warm ivory   — surfaces, light text on dark  */
-  --color-motif-soft:   #C4D1E2; /* powder blue  — highlights, glow, progress    */
-  --color-motif-silver: #A9A9A9; /* luxury silver— borders, neutral separators   */
+  --color-motif-deep:   #051C46; /* deep navy — primary background */
+  --color-motif-medium: #3A5A8C; /* muted royal blue — secondary text */
+  --color-motif-accent: #E6A6B2; /* soft blush pink — romantic highlights */
+  --color-motif-cream:  #F8F6F4; /* warm ivory — main background */
+  --color-motif-soft:   #E3ECF7; /* misty blue — cards / sections */
+  --color-motif-silver: #B7C2D6; /* cool gray-blue — borders / lines */ /* luxury silver— borders, neutral separators   */
   /* ─────────────────────────────────────────────────────────── */
   --font-imperial-script: "Imperial Script", cursive;
   --color-background: var(--background);
@@ -250,6 +250,13 @@ html {
 /* Style Script font for hero names */
 .style-script-regular {
   font-family: "Style Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Rouge Script font utility class */
+.rouge-script-regular {
+  font-family: "Rouge Script", cursive;
   font-weight: 400;
   font-style: normal;
 }

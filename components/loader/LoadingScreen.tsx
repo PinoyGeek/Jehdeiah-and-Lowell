@@ -102,7 +102,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
   }, [onComplete]);
 
   const coupleNames = `${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname}`;
-  const hashtag = '#LtrylAndBryle';
+  const hashtag = '#JehdeiahAndLowell';
   const productionCredit = '';
 
 
@@ -254,9 +254,8 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
             Almost ready for
           </p>
           <div
-            className="text-center text-2xl sm:text-3xl md:text-4xl mb-2"
+            className="rouge-script-regular text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-2"
             style={{
-              fontFamily: '"Cinzel", serif',
               color: 'var(--color-motif-cream)',
               textShadow: '0 2px 10px rgba(0,0,0,0.35)',
             }}

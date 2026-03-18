@@ -13,7 +13,7 @@ import { Section } from "@/components/section"
 
 // CSS filter approximation of --color-motif-deep (sage green). Tune if needed.
 const GALLERY_DECO_FILTER = ""
-  // "brightness(0) saturate(100%) invert(37%) sepia(20%) saturate(500%) hue-rotate(80deg) brightness(88%) contrast(92%)"
+  "brightness(0) saturate(100%) invert(9%) sepia(38%) saturate(1700%) hue-rotate(202deg) brightness(85%) contrast(95%)"
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -26,12 +26,11 @@ const cinzel = Cinzel({
 })
 
 const galleryItems = [
-  { image: "/mobile-background/couple (11).jpg", text: " " },
-  { image: "/mobile-background/couple (12).jpg", text: " " },
-  { image: "/mobile-background/couple (13).jpg", text: " " },
-  { image: "/mobile-background/couple (14).jpg", text: " " },
-  { image: "/mobile-background/couple (15).jpg", text: " " },
-  { image: "/mobile-background/couple (16).jpg", text: " " },
+  { image: "/mobile-background/couple (1).jpg", text: " " },
+  { image: "/mobile-background/couple (2).jpg", text: " " },
+  { image: "/mobile-background/couple (3).jpg", text: " " },
+  { image: "/mobile-background/couple (4).jpg", text: " " },
+  { image: "/mobile-background/couple (5).jpg", text: " " },
 
 
 ]
@@ -140,7 +139,7 @@ export function Gallery() {
           alt=""
           width={300}
           height={300}
-          className="absolute top-0 left-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px]" //opacity-20
+          className="absolute top-0 left-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px] opacity-20" 
           style={{ transform: "scaleY(-1)", filter: GALLERY_DECO_FILTER }}
           priority={false}
         />
@@ -149,7 +148,7 @@ export function Gallery() {
           alt=""
           width={300}
           height={300}
-          className="absolute top-0 right-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px]" //opacity-20
+          className="absolute top-0 right-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px] opacity-20" 
           style={{ transform: "scaleX(-1) scaleY(-1)", filter: GALLERY_DECO_FILTER }}
           priority={false}
         />
@@ -158,7 +157,7 @@ export function Gallery() {
           alt=""
           width={300}
           height={300}
-          className="absolute bottom-0 left-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px]" //opacity-20
+          className="absolute bottom-0 left-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px] opacity-20" 
           style={{ filter: GALLERY_DECO_FILTER }}
           priority={false}
         />
@@ -167,7 +166,7 @@ export function Gallery() {
           alt=""
           width={300}
           height={300}
-          className="absolute bottom-0 right-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px]" //opacity-20
+          className="absolute bottom-0 right-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px] opacity-20" 
           style={{ transform: "scaleX(-1)", filter: GALLERY_DECO_FILTER }}
           priority={false}
         />

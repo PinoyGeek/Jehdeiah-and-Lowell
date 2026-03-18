@@ -6,11 +6,7 @@ import { Cormorant_Garamond, Cinzel } from "next/font/google"
 import { siteConfig } from "@/content/site"
 
 const desktopImages: string[] = [
-  '/desktop-background/couple (1).jpg',
-  '/desktop-background/couple (2).jpg',
-  '/desktop-background/couple (3).jpg',
-  '/desktop-background/couple (4).jpg',
-  '/desktop-background/couple (5).jpg',
+  '/desktop-background/couple.jpg'
 ];
 
 const mobileImages: string[] = [
@@ -33,10 +29,6 @@ const cinzel = Cinzel({
   weight: "700",
 })
 
-const cinzelRegular = Cinzel({
-  subsets: ["latin"],
-  weight: "400",
-})
 
 export function Hero() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
@@ -461,29 +453,36 @@ export function Hero() {
           }`}
         >
           {/* Main Invitation Text */}
-          <div className="space-y-2 sm:space-y-3 md:space-y-4">
-            {/* Names & Tagline */}
-            <h1
-              className={`${cormorant.className} text-xs sm:text-sm md:text-base lg:text-lg tracking-[0.24em] sm:tracking-[0.28em] uppercase font-medium text-center text-motif-cream`}
+          <div className="space-y-2 sm:space-y-3 md:space-y-5">
+            {/* Tagline */}
+            <p
+              className={`${cormorant.className} text-sm sm:text-base md:text-lg lg:text-xl italic font-medium text-center text-motif-cream/90 tracking-wide`}
               style={{
-                textShadow: "0 2px 10px rgba(0,0,0,0.75)",
+                textShadow: "0 2px 12px rgba(0,0,0,0.8)",
               }}
             >
               Together with our families,
               <br />
               we joyfully invite you to witness our union.
-            </h1>
+            </p>
+
+            {/* Couple names */}
             <h1
-              className={`${cinzelRegular.className} text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl drop-shadow-2xl`}
-                style={{
-                  color: 'var(--color-motif-cream)',
-                  textShadow: "0 0 24px rgba(0,0,0,0.9)",
-                  fontWeight: 400,
-                }}
+              className="rouge-script-regular drop-shadow-2xl leading-none"
+              style={{
+                color: 'var(--color-motif-cream)',
+                textShadow: "0 0 32px rgba(0,0,0,0.85), 0 4px 20px rgba(0,0,0,0.6)",
+                fontWeight: 400,
+              }}
             >
-              <span className="block">{brideName}</span>
-              <span className="block">&</span>
-              <span className="block">{groomName}</span>
+              <span className="block text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem]">{brideName}</span>
+              <span
+                className={`${cormorant.className} block text-2xl sm:text-3xl md:text-4xl tracking-[0.4em] uppercase font-light my-1 sm:my-2`}
+                style={{ color: 'var(--color-motif-cream)', opacity: 0.85 }}
+              >
+                &amp;
+              </span>
+              <span className="block text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem]">{groomName}</span>
             </h1>
           </div>
 
@@ -494,7 +493,7 @@ export function Hero() {
               style={{ textShadow: "0 4px 16px rgba(0,0,0,0.6)" }}
             >
               <span
-                className={`${cinzel.className} text-[0.65rem] sm:text-xs md:text-sm uppercase tracking-[0.4em] sm:tracking-[0.5em] font-light text-motif-cream`}
+                className={`${cinzel.className} text-xs sm:text-sm md:text-base uppercase tracking-[0.4em] sm:tracking-[0.5em] font-light text-motif-cream`}
                 style={{ textShadow: "0 2px 14px color-mix(in srgb, var(--color-motif-deep) 65%, transparent)" }}
               >
                 {weddingMonth}
@@ -505,7 +504,7 @@ export function Hero() {
               <div className="flex flex-1 items-center justify-end gap-1.5 sm:gap-2.5">
                   <span className="h-[0.5px] flex-1 bg-motif-cream/45" />
                   <span
-                    className={`${cinzel.className} text-[0.6rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] font-light text-motif-cream`}
+                    className={`${cinzel.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.3em] sm:tracking-[0.4em] font-light text-motif-cream`}
                     style={{ textShadow: "0 2px 14px color-mix(in srgb, var(--color-motif-deep) 65%, transparent)" }}
                   >
                     {ceremonyDayShort}
@@ -520,7 +519,7 @@ export function Hero() {
                     className="absolute inset-0 mx-auto h-[70%] max-h-[180px] w-[100px] sm:w-[140px] md:w-[170px] rounded-full bg-gradient-to-b from-motif-soft/40 via-motif-soft/30 to-transparent blur-[28px] opacity-80"
                   />
                   <span
-                    className={`${cinzel.className} relative text-[4rem] sm:text-[5.5rem] md:text-[6.5rem] lg:text-[7rem] font-light leading-none tracking-wider text-motif-cream`}
+                    className={`${cormorant.className} relative text-[4rem] sm:text-[5.5rem] md:text-[6.5rem] lg:text-[7rem] font-light leading-none tracking-wider text-motif-cream`}
                     style={{
                       textShadow: "0 0 22px var(--color-motif-cream), 0 0 40px color-mix(in srgb, var(--color-motif-cream) 70%, transparent)",
                       filter: "drop-shadow(0 0 26px color-mix(in srgb, var(--color-motif-cream) 65%, transparent))",
@@ -534,7 +533,7 @@ export function Hero() {
                 <div className="flex flex-1 items-center gap-1.5 sm:gap-2.5">
                   <span className="h-[0.5px] w-6 sm:w-8 md:w-10 bg-motif-cream/45" />
                   <span
-                    className={`${cinzel.className} text-[0.6rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] font-light text-motif-cream`}
+                    className={`${cinzel.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.3em] sm:tracking-[0.4em] font-light text-motif-cream`}
                     style={{ textShadow: "0 2px 14px color-mix(in srgb, var(--color-motif-deep) 65%, transparent)" }}
                   >
                     {ceremonyTime.split(",")[0]}
@@ -544,7 +543,7 @@ export function Hero() {
               </div>
 
               <span
-                className={`${cinzel.className} text-[0.65rem] sm:text-xs md:text-sm uppercase tracking-[0.4em] sm:tracking-[0.5em] font-light text-motif-cream`}
+                className={`${cinzel.className} text-xs sm:text-sm md:text-base uppercase tracking-[0.4em] sm:tracking-[0.5em] font-light text-motif-cream`}
                 style={{ textShadow: "0 2px 14px color-mix(in srgb, var(--color-motif-deep) 65%, transparent)" }}
               >
                 {weddingYear}
@@ -554,8 +553,11 @@ export function Hero() {
 
           {/* Venue */}
           <div className="space-y-1 sm:space-y-1.5 pt-1 sm:pt-2">
+           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-motif-cream tracking-wide">
+            {siteConfig.ceremony.location}
+           </h1>
             <p
-              className={`${cinzel.className} text-xs sm:text-sm md:text-base lg:text-lg uppercase tracking-[0.22em] sm:tracking-[0.26em] md:tracking-[0.3em] text-motif-cream font-medium`}
+              className={`${cormorant.className} text-sm sm:text-base md:text-lg lg:text-xl italic font-semibold text-motif-cream tracking-wide`}
               style={{
                 textShadow: "0 2px 18px rgba(0,0,0,0.9)",
               }}
@@ -567,7 +569,7 @@ export function Hero() {
           {/* Call-to-action section */}
           <div className="pt-3 sm:pt-4 md:pt-5 flex flex-col gap-3 sm:gap-4 items-center max-w-2xl mx-auto w-full px-4">
             <p
-              className={`${cinzel.className} text-[0.7rem] sm:text-xs md:text-sm lg:text-base uppercase tracking-[0.24em] sm:tracking-[0.28em] text-motif-cream/95 font-normal leading-relaxed text-center px-4`}
+              className={`${cormorant.className} text-base sm:text-lg md:text-xl lg:text-2xl italic font-medium text-motif-cream/95 leading-relaxed text-center px-4 tracking-wide`}
               style={{
                 textShadow: "0 2px 14px rgba(0,0,0,0.7)",
               }}

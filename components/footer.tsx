@@ -3,7 +3,7 @@ import { siteConfig } from "@/content/site"
 // Champagne Gold + Beige + Soft Brown
 // creates a luxury, elegant, and warm aesthetic
 const palette = {
-  deep: "#4E3B31",            // deep brown
+  deep: "#746D5B",            // deep brown
   softBrown: "#8B6F5A",       // soft brown
   background: "#E8DCCB",      // beige background
   champagneGold: "#D6BFA3",   // champagne
