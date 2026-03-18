@@ -6,7 +6,11 @@ import { Cormorant_Garamond, Cinzel } from "next/font/google"
 import { siteConfig } from "@/content/site"
 
 const desktopImages: string[] = [
-  '/desktop-background/couple.jpg'
+  '/desktop-background/couple.jpg',
+  '/desktop-background/couple.jpg',
+  '/desktop-background/couple.jpg',
+  '/desktop-background/couple.jpg',
+  '/desktop-background/couple.jpg',
 ];
 
 const mobileImages: string[] = [

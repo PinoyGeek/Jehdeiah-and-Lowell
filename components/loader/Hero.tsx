@@ -26,7 +26,12 @@ interface HeroProps {
 
 
 const desktopImages: string[] = [
-  '/desktop-background/couple.jpg'
+  '/desktop-background/couple.jpg',
+  '/desktop-background/couple.jpg',
+  '/desktop-background/couple.jpg',
+  '/desktop-background/couple.jpg',
+  '/desktop-background/couple.jpg',
+
 ];
 
 const mobileImages: string[] = [
