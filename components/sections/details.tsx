@@ -331,11 +331,11 @@ export function Details() {
                 </button>
                 <button
                   onClick={() => copyToClipboard(ceremonyVenue, 'ceremony')}
-                  className="flex-1 flex items-center justify-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2 sm:py-2.5 md:py-3 bg-motif-cream border-2 border-motif-deep/30 hover:border-motif-deep/50 hover:bg-motif-silver/20 text-motif-deep rounded-lg font-[family-name:var(--font-crimson)] font-semibold text-xs sm:text-sm md:text-base transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                  className="flex-1 flex items-center justify-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2 sm:py-2.5 md:py-3 bg-motif-soft border-2 border-motif-soft/30 hover:border-motif-soft/50 hover:bg-motif-silver/20 text-motif-cream rounded-lg font-[family-name:var(--font-crimson)] font-semibold text-xs sm:text-sm md:text-base transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
                   aria-label="Copy ceremony venue address"
                 >
                   {copiedItems.has('ceremony') ? (
-                    <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 flex-shrink-0 text-motif-deep" />
+                    <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 flex-shrink-0 text-motif-cream" />
                   ) : (
                     <Copy className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 flex-shrink-0" />
                   )}
@@ -456,11 +456,11 @@ export function Details() {
                 </button>
                 <button
                   onClick={() => copyToClipboard(receptionVenue, 'reception')}
-                  className="flex-1 flex items-center justify-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2 sm:py-2.5 md:py-3 bg-motif-cream border-2 border-motif-deep/30 hover:border-motif-deep/50 hover:bg-motif-silver/20 text-motif-deep rounded-lg font-[family-name:var(--font-crimson)] font-semibold text-xs sm:text-sm md:text-base transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                  className="flex-1 flex items-center justify-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2 sm:py-2.5 md:py-3 bg-motif-soft border-2 border-motif-soft/30 hover:border-motif-soft/50 hover:bg-motif-silver/20 text-motif-cream rounded-lg font-[family-name:var(--font-crimson)] font-semibold text-xs sm:text-sm md:text-base transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
                   aria-label="Copy reception venue address"
                 >
                   {copiedItems.has('reception') ? (
-                    <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 flex-shrink-0 text-motif-deep" />
+                    <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 flex-shrink-0 text-motif-cream" />
                   ) : (
                     <Copy className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 flex-shrink-0" />
                   )}
@@ -496,106 +496,104 @@ export function Details() {
 
         {/* Attire Cards */}
         <div className="space-y-5 sm:space-y-6 md:space-y-8">
-          {/* Principal Sponsor Attire */}
-          <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-br from-motif-silver/22 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
+         {/* Ladies Attire */}
+         <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-br from-motif-cream to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
             
-            <div className="relative bg-motif-cream backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-7 lg:p-9 border  hover:shadow-[0_20px_48px_rgba(0,0,0,0.24)] hover:border-motif-deep/70 transition-all duration-300">
+            <div className="relative bg-motif-cream backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-7 lg:p-9 border border-motif-cream/15 shadow-[0_16px_40px_rgba(0,0,0,0.18)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.22)] hover:border-motif-cream/25 transition-all duration-300">
               <h4
-                className={`${cinzel.className} text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-motif-deep mb-4 sm:mb-5 md:mb-6 uppercase tracking-[0.16em] text-center px-2`}
+                className="scope-one-regular text-base sm:text-lg md:text-xl lg:text-2xl font-normal text-motif-deep mb-4 sm:mb-5 md:mb-6 uppercase tracking-[0.18em] text-center px-2"
               >
-                Guest Attire
+                Ladies’ Attire
               </h4>
-
-              {/* Copy: follow color palette */}
-              <p className={`${cinzel.className} text-center text-xs sm:text-sm md:text-base lg:text-lg text-motif-deep/90 font-light leading-relaxed mb-4 sm:mb-5 md:mb-6 max-w-xl mx-auto px-3`}>
-                Please follow the color palette below for your outfit.
-              </p>
-
-              {/* Principal sponsor attire image */}
-              <div className="relative w-full aspect-[4/3] sm:aspect-[3/2] max-w-2xl mx-auto rounded-lg sm:rounded-xl overflow-hidden border border-motif-medium/30 mb-4 sm:mb-6 md:mb-8">
+   
+              <div className="relative w-full aspect-[4/3] sm:aspect-[3/2] max-w-2xl mx-auto rounded-lg sm:rounded-xl overflow-hidden border border-motif-deep/15 mb-4 sm:mb-6 md:mb-8">
                 <Image
-                  src="/Details/guestAttire.png"
-                  alt="Principal sponsor attire — follow the color palette"
+                  src={siteConfig.dressCode.sponsors.image}
+                  alt={siteConfig.dressCode.sponsors.note}
                   fill
-                  className="object-contain bg-[#FFF7F6]/50 p-2 sm:p-3"
+                  className="object-contain bg-motif-silver/15 p-2 sm:p-3"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 672px"
                 />
               </div>
 
-              {/* Color palette for principal sponsors — keep explicit dress-code colors (not UI palette) */}
+        <p className="text-center text-xs sm:text-sm md:text-base lg:text-lg font-body text-motif-deep/85 font-light leading-relaxed mb-4 sm:mb-5 md:mb-6 max-w-xl mx-auto px-3">
+          {siteConfig.dressCode.sponsors.note}
+        </p>
               <div className="flex justify-center gap-2 sm:gap-3 md:gap-4 flex-wrap mb-5 sm:mb-6 md:mb-7 px-2">
-                {siteConfig.dressCode.colors.split(',').map((color) => (
-                  <div
-                    key={color.trim()}
-                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full shadow-md border border-white ring-2 ring-motif-silver/40 hover:scale-110 transition-transform duration-300"
-                    style={{ backgroundColor: color.trim() }}
-                    title={color.trim()}
-                  />
-                ))}
-              </div>
-              
-              {/* Sponsors Dress Code Text */}
-              <div className="text-center pt-3 sm:pt-4 border-t border-motif-silver/70 px-3 sm:px-4">
-                <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-motif-deep leading-relaxed mb-2">
-                  <span className="font-semibold">Dress code:</span> Semi‑formal.
-                </p>
-                {/* <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-motif-deep leading-relaxed mb-2">
-                  <span className="font-semibold">Palette inspiration:</span> {siteConfig.dressCode.colors}
-                </p> */}
-                <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-motif-deep leading-relaxed italic">
-                  {siteConfig.dressCode.note}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Guest Attire */}
-          {/* <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-br from-[#F3C66C]/18 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
-            
-            <div className="relative bg-[#FDF6EA] backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-7 lg:p-9 border border-[#E0C5A2] shadow-[0_16px_40px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.6)] hover:border-[#F3C66C]/80 transition-all duration-300">
-              <h4
-                className={`${montserrat.className} text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-[#8B1E1E] mb-4 sm:mb-5 md:mb-6 uppercase tracking-[0.16em] text-center px-2`}
-              >
-                Guest Attire
-              </h4>
-
-              <p className="text-center text-xs sm:text-sm md:text-base lg:text-lg font-[family-name:var(--font-crimson)] text-[#C44569]/90 font-light leading-relaxed mb-4 sm:mb-5 md:mb-6 max-w-xl mx-auto px-3">
-                Please follow the color palette below for your outfit.
-              </p>
-
-        
-              <div className="relative w-full aspect-[4/3] sm:aspect-[3/2] max-w-2xl mx-auto rounded-lg sm:rounded-xl overflow-hidden border border-[#C44569]/30 mb-4 sm:mb-6 md:mb-8">
-                <Image
-                  src="/Details/guest (3).png"
-                  alt="Guest attire inspiration — follow the color palette"
-                  fill
-                  className="object-contain bg-[#FFF7F6]/50 p-2 sm:p-3"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 672px"
-                />
-              </div>
-
-        
-              <div className="flex justify-center gap-2 sm:gap-3 md:gap-4 flex-wrap mb-5 sm:mb-6 md:mb-7 px-2">
-                {["#CBA990", "#EBD3B9", "#F5E1C0"].map((color) => (
+                {siteConfig.dressCode.sponsors.palette.split(',').map((color) => (
                   <div
                     key={color}
-                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full shadow-md border-2 border-white ring-2 ring-[#C44569]/30 hover:scale-110 transition-transform duration-300"
-                    style={{ backgroundColor: color }}
+                    role="img"
+                    aria-label={`Dress code color swatch ${color}`}
                     title={color}
+                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full shadow-md border-2 border-white ring-2 ring-motif-deep/15 hover:scale-110 transition-transform duration-300"
+                    style={{ backgroundColor: color }}
                   />
                 ))}
               </div>
               
  
-              <div className="text-center pt-3 sm:pt-4 border-t border-[#C44569]/20 px-3 sm:px-4">
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl font-[family-name:var(--font-crimson)] text-[#C44569] leading-relaxed mb-3 sm:mb-4">
-                  <span className="font-semibold">Semi-Formal</span>
+              <div className="text-center pt-3 sm:pt-4 border-t border-motif-deep/15 px-3 sm:px-4 space-y-2">
+                <p className="scope-one-regular text-sm sm:text-base md:text-lg lg:text-xl text-motif-deep leading-relaxed uppercase tracking-[0.18em]">
+                  {siteConfig.dressCode.theme}
                 </p>
+                {/* <p className="font-body text-xs sm:text-sm md:text-base text-motif-deep/80 leading-relaxed">
+                  Please avoid shorts, maong jeans, t-shirts, or slippers. Thank you for helping us keep the look polished.
+                </p> */}
               </div>
             </div>
-          </div> */}
+          </div>
+          {/* Gentlemen’s Attire */}
+          <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-br from-motif-cream to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
+            
+            <div className="relative bg-motif-cream backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-7 lg:p-9 border border-motif-cream/15 shadow-[0_16px_40px_rgba(0,0,0,0.18)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.22)] hover:border-motif-cream/25 transition-all duration-300">
+              <h4
+                className="scope-one-regular text-base sm:text-lg md:text-xl lg:text-2xl font-normal text-motif-deep mb-4 sm:mb-5 md:mb-6 uppercase tracking-[0.18em] text-center px-2"
+              >
+                Gentlemen’s Attire
+              </h4>
+   
+              <div className="relative w-full aspect-[4/3] sm:aspect-[3/2] max-w-2xl mx-auto rounded-lg sm:rounded-xl overflow-hidden border border-motif-deep/15 mb-4 sm:mb-6 md:mb-8">
+                <Image
+                  src={siteConfig.dressCode.guests.image}
+                  alt={siteConfig.dressCode.guests.notes}
+                  fill
+                  className="object-contain bg-motif-silver/15 p-2 sm:p-3"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 672px"
+                />
+              </div>
+
+        <p className="text-center text-xs sm:text-sm md:text-base lg:text-lg font-body text-motif-deep/85 font-light leading-relaxed mb-4 sm:mb-5 md:mb-6 max-w-xl mx-auto px-3">
+          {siteConfig.dressCode.guests.notes}
+        </p>
+              <div className="flex justify-center gap-2 sm:gap-3 md:gap-4 flex-wrap mb-5 sm:mb-6 md:mb-7 px-2">
+                {siteConfig.dressCode.guests.palette.split(',').map((color) => (
+                  <div
+                    key={color}
+                    role="img"
+                    aria-label={`Dress code color swatch ${color}`}
+                    title={color}
+                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full shadow-md border-2 border-white ring-2 ring-motif-deep/15 hover:scale-110 transition-transform duration-300"
+                    style={{ backgroundColor: color }}
+                  />
+                ))}
+              </div>
+              
+ 
+              <div className="text-center pt-3 sm:pt-4 border-t border-motif-deep/15 px-3 sm:px-4 space-y-2">
+                <p className="scope-one-regular text-sm sm:text-base md:text-lg lg:text-xl text-motif-deep leading-relaxed uppercase tracking-[0.18em]">
+                  {siteConfig.dressCode.theme}
+                </p>
+                {/* <p className="font-body text-xs sm:text-sm md:text-base text-motif-deep/80 leading-relaxed">
+                  Please avoid shorts, maong jeans, t-shirts, or slippers. Thank you for helping us keep the look polished.
+                </p> */}
+              </div>
+            </div>
+          </div>
+        </div>
+
         </div>
 
      {/* Gentle Reminders Container */}
@@ -893,7 +891,6 @@ export function Details() {
         </div>
       )}
      
-      </div>
     </Section>
-  )
+  );
 }

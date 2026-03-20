@@ -242,20 +242,20 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
             <Button
               type="submit"
               disabled={isSubmitting || !nameValue.trim() || !messageValue.trim()}
-              className={`${cormorant.className} w-full text-motif-cream py-2 sm:py-2.5 md:py-3 lg:py-3.5 px-4 sm:px-5 md:px-6 lg:px-7 rounded-xl text-xs sm:text-sm md:text-base font-semibold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none relative overflow-hidden group border border-motif-deep`}
+              className={`${cormorant.className} w-full text-motif-cream py-2 sm:py-2.5 md:py-3 lg:py-3.5 px-4 sm:px-5 md:px-6 lg:px-7 rounded-xl text-xs sm:text-sm md:text-base font-semibold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none relative overflow-hidden group border border-motif-soft`}
               style={{ 
-                backgroundColor: MSG_COLOR,
+                backgroundColor: "var(--color-motif-soft)",
                 color: "var(--color-motif-cream)",
-                boxShadow: "0 6px 20px color-mix(in srgb, var(--color-motif-deep) 30%, transparent), 0 2px 8px color-mix(in srgb, var(--color-motif-deep) 15%, transparent)",
+                boxShadow: "0 6px 20px color-mix(in srgb, var(--color-motif-soft) 30%, transparent), 0 2px 8px color-mix(in srgb, var(--color-motif-soft) 15%, transparent)",
               }}
               onMouseEnter={(e) => {
                 if (!e.currentTarget.disabled) {
-                  e.currentTarget.style.backgroundColor = "var(--color-motif-accent)";
+                  e.currentTarget.style.backgroundColor = "var(--color-motif-soft)";
                   e.currentTarget.style.boxShadow = "0 8px 24px color-mix(in srgb, var(--color-motif-deep) 35%, transparent), 0 3px 10px color-mix(in srgb, var(--color-motif-deep) 20%, transparent)";
                 }
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = MSG_COLOR;
+                e.currentTarget.style.backgroundColor = "var(--color-motif-soft)";
                 e.currentTarget.style.boxShadow = "0 6px 20px color-mix(in srgb, var(--color-motif-deep) 30%, transparent), 0 2px 8px color-mix(in srgb, var(--color-motif-deep) 15%, transparent)";
               }}
             >

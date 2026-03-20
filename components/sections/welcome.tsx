@@ -108,13 +108,13 @@ export function Welcome() {
                 className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm lg:text-base italic leading-relaxed`}
                 style={{ color: 'var(--color-motif-deep)', opacity: 0.9 }}
               >
-                &quot;In God&apos;s perfect time, love grows and all things become beautiful.&quot;
+                "I have found the one whom my soul loves."
               </p>
               <p
                 className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm lg:text-base italic leading-relaxed`}
                 style={{ color: 'var(--color-motif-deep)', opacity: 0.9 }}
               >
-                &quot;Love bears all things, hopes all things, endures all things.&quot;
+                "Song of Solomon 3:4"
               </p>
             </div>
 

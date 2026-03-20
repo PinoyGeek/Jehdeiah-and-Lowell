@@ -36,7 +36,7 @@ export function WeddingDetails() {
         </div>
         <div className="flex items-center gap-2 text-white/90">
           <Calendar className="h-5 w-5" />
-          <span className="text-lg">{siteConfig.weddingDate}</span>
+          <span className="text-lg">{siteConfig.wedding.date}</span>
         </div>
       </div>
 

@@ -557,6 +557,9 @@ export function Hero() {
 
           {/* Venue */}
           <div className="space-y-1 sm:space-y-1.5 pt-1 sm:pt-2">
+             <p className={`${cormorant.className} text-sm sm:text-base md:text-lg lg:text-xl italic font-semibold text-motif-cream tracking-wide mb-2`}>
+              Ceremony Venue:
+             </p>
            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-motif-cream tracking-wide">
             {siteConfig.ceremony.location}
            </h1>
@@ -585,13 +588,13 @@ export function Hero() {
             <div className="w-full flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch">
             <a
               href="#guest-list"
-              className={`${cormorant.className} group relative flex-1 sm:min-w-[200px] md:min-w-[220px] rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 focus-visible:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-motif-deep/70`}
+              className={`${cormorant.className} group relative flex-1 sm:min-w-[200px] md:min-w-[220px] rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 focus-visible:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-motif-soft/70`}
               style={{
-                backgroundColor: "var(--color-motif-cream)",
+                backgroundColor: "var(--color-motif-soft)",
                 boxShadow: "0 10px 24px color-mix(in srgb, var(--color-motif-cream) 40%, transparent)",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "color-mix(in srgb, var(--color-motif-cream) 75%, var(--color-motif-medium))";
+                e.currentTarget.style.backgroundColor = "color-mix(in srgb, var(--color-motif-cream) 75%, var(--color-motif-soft))";
                 e.currentTarget.style.boxShadow = "0 12px 28px color-mix(in srgb, var(--color-motif-cream) 50%, transparent)";
               }}
               onMouseLeave={(e) => {
@@ -599,7 +602,7 @@ export function Hero() {
                 e.currentTarget.style.boxShadow = "0 10px 24px color-mix(in srgb, var(--color-motif-cream) 40%, transparent)";
               }}
             >
-              <span className="relative z-10 inline-flex h-full min-h-[3rem] sm:min-h-[3.25rem] w-full items-center justify-center px-6 sm:px-8 text-[0.65rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.32em] sm:tracking-[0.36em] text-motif-deep font-semibold transition-all duration-300" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.1)" }}>
+              <span className="relative z-10 inline-flex h-full min-h-[3rem] sm:min-h-[3.25rem] w-full items-center justify-center px-6 sm:px-8 text-[0.65rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.32em] sm:tracking-[0.36em] text-motif-cream font-semibold transition-all duration-300" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.1)" }}>
                 Confirm Attendance
               </span>
             </a>

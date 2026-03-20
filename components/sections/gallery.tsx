@@ -307,22 +307,22 @@ export function Gallery() {
               <div className="mt-10 sm:mt-12 flex justify-center">
                 <Link
                   href="/gallery"
-                  className={`${cinzel.className} inline-flex items-center justify-center rounded-sm px-8 py-3.5 text-[0.65rem] sm:text-xs uppercase tracking-[0.22em] font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-motif-cream focus-visible:ring-motif-deep`}
+                  className={`${cinzel.className} inline-flex items-center justify-center rounded-sm px-8 py-3.5 text-[0.65rem] sm:text-xs uppercase tracking-[0.22em] font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-motif-cream focus-visible:ring-motif-soft`}
                   style={{
                     color: 'var(--color-motif-cream)',
-                    backgroundColor: 'var(--color-motif-deep)',
-                    border: '2px solid var(--color-motif-deep)',
+                    backgroundColor: 'var(--color-motif-soft)',
+                    border: '2px solid var(--color-motif-soft)',
                     boxShadow: '0 4px 14px color-mix(in srgb, var(--color-motif-deep) 13%, transparent)',
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.backgroundColor = 'var(--color-motif-accent)'
-                    e.currentTarget.style.borderColor = 'var(--color-motif-deep)'
+                    e.currentTarget.style.borderColor = 'var(--color-motif-soft)'
                     e.currentTarget.style.color = 'var(--color-motif-cream)'
                     e.currentTarget.style.boxShadow = '0 6px 20px color-mix(in srgb, var(--color-motif-deep) 19%, transparent)'
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.backgroundColor = 'var(--color-motif-accent)'
-                    e.currentTarget.style.borderColor = 'var(--color-motif-deep)'
+                    e.currentTarget.style.borderColor = 'var(--color-motif-soft)'
                     e.currentTarget.style.color = 'var(--color-motif-cream)'
                     e.currentTarget.style.boxShadow = '0 4px 14px color-mix(in srgb, var(--color-motif-deep) 13%, transparent)'
                   }}

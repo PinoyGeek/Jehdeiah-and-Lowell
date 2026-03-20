@@ -3,7 +3,7 @@ export const siteConfig = {
     bride: "Jehdeiah Diaz Villacote",
     brideNickname: "Jehdeiah",
     groom: "Lowell Mark Tupaz Lucero",
-    groomNickname: "Lowell",
+    groomNickname: "Lowell Mark",
   },
   wedding: {
     date: "November 29, 2026",
@@ -38,15 +38,18 @@ export const siteConfig = {
     time: "6:00 PM",
   },
   dressCode: {
-      theme: "SEMI-FORMAL",
-    colors: "#051C46, #3A5A8C, #E3ECF7, #F8F9FF",
+    theme: "Formal",
+    // Comma-separated so components can render swatches (see Details section).
+    colors: "#48553C, #727B42, #7D2734,#CE979D",
     sponsors: {
-      male: "Guests are kindly requested to wear attire in any of the shades within our wedding palette.Color pallet and image to be followed. STRICTLY no shorts, maong jeans, t-shirts, or slippers.",
-      female: "Guests are kindly requested to wear attire in any of the shades within our wedding palette.Color pallet and image to be followed. STRICTLY no shorts, maong jeans, t-shirts, or slippers."
+      image: "/attire/ladies.jpg",
+      note: "Kindly dress in formal gowns inspired by fuchsia tones, from light romantic pinks to rich, bold magentas, to complement our wedding motif." ,
+      palette: "#C74375, #E75480, #F28CA3, #5A0F2E, #FFF0F5", 
     },
     guests: {
-      gents: "Guests are kindly requested to wear attire in any of the shades within our wedding palette.Color pallet and image to be followed. STRICTLY no shorts, maong jeans, t-shirts, or slippers.",
-      ladies: "Guests are kindly requested to wear attire in any of the shades within our wedding palette.Color pallet and image to be followed. STRICTLY no shorts, maong jeans, t-shirts, or slippers."
+      image: "/attire/gentelmen.jpg",
+      notes: "Kindly dress in refined formal or smart casual attire in earthy and neutral tones such as deep brown, warm beige, olive green, and champagne to complement the wedding motif.",
+      palette: "#1F3A5F, #4A6FA5, #D9E2EC, #8D99AE", 
     },
     note: "We kindly request our guests to dress in attire following our wedding palette."
   },
@@ -79,7 +82,7 @@ Now, as they prepare to say yes before God and the people they love most, Cather
   },
   snapShare: {
     googleDriveLink: "https://drive.google.com/drive/folders/1OHc4gq4VHPequrPTjIrV6-YpZ5ctk9lo?usp=sharing",
-    hashtag: ["#LowellAndJehdeiah", "#JehdeiahAndLowell", "#LowellAndJehdeiahWedding"],
+    hashtag: ["#LOWELOfficiallyMARKedJEHD","#MARKantWaitToMarryJEHD","#GOD'sReMARKableGiftForJEHD","##MARKadoNaSiJEHD"],
     instructions: "Please scan this QR Code, create a folder with your name and upload the photos and videos you have taken during our wedding reception. We are delighted to see your snaps too!",
   },
 }

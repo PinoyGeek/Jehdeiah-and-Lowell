@@ -16,12 +16,12 @@ interface HeroProps {
   // Palette tuned for champagne gold + beige + soft brown
  // Palette tuned to motif: sage green, muted sage, warm ivory, powder blue, steel blue, luxury silver
  const palette = {
-  deep: '#051C46',    // deep navy — primary background
-  medium: '#9CAA99',  // soft muted sage — secondary text, subtle elements
-  accent: '#E6A6B2',  // soft blush pink — romantic highlights
-  cream: '#F8F6F4',   // warm ivory — main background
-  soft: '#E3ECF7',    // misty blue — cards / sections
-  silver: '#A9A9A9',  // luxury silver — neutral separators, track backgrounds
+  deep: 'var(--color-motif-deep)',    // deep navy — primary background
+  medium: 'var(--color-motif-medium)',  // soft muted sage — secondary text, subtle elements
+  accent: 'var(--color-motif-accent)',  // soft blush pink — romantic highlights
+  cream: 'var(--color-motif-cream)',   // warm ivory — main background
+  soft: 'var(--color-motif-soft)',    // misty blue — cards / sections
+  silver: 'var(--color-motif-silver)',  // luxury silver — neutral separators, track backgrounds
 };
 
 
@@ -210,23 +210,23 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
               contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
             style={{
-              backgroundColor: palette.deep,
+              backgroundColor: palette.soft,
               borderColor: palette.deep,
               color: palette.cream,
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = palette.medium;
+              e.currentTarget.style.backgroundColor = palette.soft;
               e.currentTarget.style.transform = 'translateY(-2px)';
-              e.currentTarget.style.borderColor = palette.medium;
+              e.currentTarget.style.borderColor = palette.soft;
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = palette.deep;
+              e.currentTarget.style.backgroundColor = palette.soft;
               e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.borderColor = palette.medium;
+              e.currentTarget.style.borderColor = palette.soft;
             }}
           >
             <span
-              style={{ fontFamily: '"Cinzel", serif', fontWeight: 500, color: palette.cream }}
+              style={{ fontFamily: '"Cinzel", serif', fontWeight: 500, color: palette.deep }}
             >
               Open Invitation
             </span>

@@ -91,8 +91,8 @@
   --color-motif-deep:   #051C46; /* deep navy — primary background */
   --color-motif-medium: #3A5A8C; /* muted royal blue — secondary text */
   --color-motif-accent: #E6A6B2; /* soft blush pink — romantic highlights */
-  --color-motif-cream:  #F8F6F4; /* warm ivory — main background */
-  --color-motif-soft:   #E3ECF7; /* misty blue — cards / sections */
+  --color-motif-cream:  #FFF0F5; /* warm ivory — main background */
+  --color-motif-soft:   #E75480; /* misty blue — cards / sections */
   --color-motif-silver: #B7C2D6; /* cool gray-blue — borders / lines */ /* luxury silver— borders, neutral separators   */
   /* ─────────────────────────────────────────────────────────── */
   --font-imperial-script: "Imperial Script", cursive;

@@ -37,8 +37,8 @@ function addHours(timeStr: string, hoursToAdd: number): string {
 const { groomNickname, brideNickname } = siteConfig.couple
 const ceremonyTime = siteConfig.ceremony.time
 const guestsTime = siteConfig.ceremony.guestsTime ?? "1:30 PM"
-const ceremonyVenue = siteConfig.ceremony.venue
-const receptionVenue = siteConfig.reception.venue
+const ceremonyVenue = siteConfig.ceremony.location
+const receptionVenue = siteConfig.reception.location
 const receptionTime = siteConfig.reception.time
 
 // Colors sourced from globals.css @theme inline — edit there to update everywhere
@@ -65,7 +65,7 @@ interface TimelineEvent {
 const timelineEvents: TimelineEvent[] = [
   {
     time: siteConfig.ceremony.entourageTime,
-    title: "Arrival",
+    title: `Arrival at the ${ceremonyVenue}`,
     description: "Please arrive on time to find your seat, settle in, and get ready for the celebration.",
     location: ceremonyVenue,
     icon: GuestsIcon,
