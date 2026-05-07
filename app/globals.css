@@ -88,12 +88,14 @@
   --font-serif: "Great Vibes", "Great Vibes Fallback";
 
   /* ─── Motif palette — edit here, affects every component ─── */
-  --color-motif-deep:   #051C46; /* deep navy — primary background */
-  --color-motif-medium: #3A5A8C; /* muted royal blue — secondary text */
-  --color-motif-accent: #E6A6B2; /* soft blush pink — romantic highlights */
-  --color-motif-cream:  #FFF0F5; /* warm ivory — main background */
-  --color-motif-soft:   #E75480; /* misty blue — cards / sections */
-  --color-motif-silver: #B7C2D6; /* cool gray-blue — borders / lines */ /* luxury silver— borders, neutral separators   */
+/* Lilac & Light Blue Wedding Theme */
+
+--color-motif-deep:   #6F5FA8; /* elegant lilac purple — primary background */
+--color-motif-medium: #9BBCE8; /* soft light blue — secondary elements */
+--color-motif-accent: #E9D7F7; /* pastel lilac — romantic highlights */
+--color-motif-cream:  #F6F9FF; /* airy bridal white with blue tint — main background */
+--color-motif-soft:   #EAF4FF; /* powder blue — cards / sections */
+--color-motif-silver: #C8D4E8; /* soft blue-gray — borders / muted text *//* cool gray-blue — borders / lines */ /* luxury silver— borders, neutral separators   */
   /* ─────────────────────────────────────────────────────────── */
   --font-imperial-script: "Imperial Script", cursive;
   --color-background: var(--background);
