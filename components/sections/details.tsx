@@ -17,6 +17,8 @@ import {
   Camera,
   X,
   MapPin,
+  ZoomIn,
+  ZoomOut,
 } from "lucide-react"
 
 
@@ -36,6 +38,8 @@ export function Details() {
   const [copiedItems, setCopiedItems] = useState<Set<string>>(new Set())
   const [currentReceptionImageIndex, setCurrentReceptionImageIndex] = useState(0)
   const [showImageModal, setShowImageModal] = useState<string | null>(null)
+  const [guestAttireLightboxOpen, setGuestAttireLightboxOpen] = useState(false)
+  const [guestAttireZoom, setGuestAttireZoom] = useState(1)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [rotationOffset, setRotationOffset] = useState(0)
   
@@ -68,6 +72,23 @@ export function Details() {
 
     return () => clearInterval(interval)
   }, [coupleImages.length])
+
+  useEffect(() => {
+    if (!guestAttireLightboxOpen) {
+      setGuestAttireZoom(1)
+      return
+    }
+    const prevOverflow = document.body.style.overflow
+    document.body.style.overflow = "hidden"
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setGuestAttireLightboxOpen(false)
+    }
+    window.addEventListener("keydown", onKey)
+    return () => {
+      document.body.style.overflow = prevOverflow
+      window.removeEventListener("keydown", onKey)
+    }
+  }, [guestAttireLightboxOpen])
 
   const copyToClipboard = async (text: string, itemId: string) => {
     try {
@@ -106,8 +127,6 @@ export function Details() {
   const formattedCeremonyDate = siteConfig.ceremony.date
   const formattedReceptionDate = siteConfig.ceremony.date // reception follows ceremony on same day
 
-  const DECO_FILTER = "brightness(0) saturate(100%) invert(9%) sepia(38%) saturate(1700%) hue-rotate(202deg) brightness(85%) contrast(95%)"
-
   const openInMaps = (link: string) => {
     window.open(link, '_blank', 'noopener,noreferrer')
   }
@@ -140,7 +159,6 @@ export function Details() {
           width={300}
           height={300}
           className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-65 scale-y-[-1]"
-          // style={{ filter: DECO_FILTER }}
         />
       </div>
 
@@ -152,7 +170,6 @@ export function Details() {
           width={300}
           height={300}
           className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-65 scale-x-[-1] scale-y-[-1]"
-          // style={{ filter: DECO_FILTER }}
         />
       </div>
 
@@ -164,7 +181,6 @@ export function Details() {
           width={300}
           height={300}
           className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-65"
-          // style={{ filter: DECO_FILTER }}
         />
       </div>
 
@@ -176,7 +192,6 @@ export function Details() {
           width={300}
           height={300}
           className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-65 scale-x-[-1]"
-          // style={{ filter: DECO_FILTER }}
         />
       </div>
 
@@ -472,10 +487,9 @@ export function Details() {
         </div>
       </div>
 
-      {/* Attire Information */}
+      {/* Guest attire — visual + copy */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6">
-        {/* Section Header */}
-        <div className="text-center mb-8 sm:mb-10 md:mb-12">
+        <div className="text-center mb-6 sm:mb-8 md:mb-10">
           <div className="flex items-center justify-center gap-3 sm:gap-4 mb-4 sm:mb-5">
             <div className="h-px w-10 sm:w-14 md:w-20 bg-motif-silver/60" />
             <Shirt className="w-5 h-5 sm:w-6 sm:h-6 text-motif-silver" />
@@ -485,111 +499,42 @@ export function Details() {
             className={`${cinzel.className} text-xl sm:text-2xl md:text-3xl font-semibold text-motif-deep mb-3 sm:mb-4 uppercase`}
             style={{ letterSpacing: "0.16em", textShadow: "0 2px 10px rgba(91,102,85,0.25)" }}
           >
-            Attire Guidelines
+            Guest Attire
           </h3>
-          <p
-            className={`${cinzel.className} text-sm sm:text-base md:text-lg text-motif-medium font-normal`}
-          >
-            Please dress according to the guidelines below.
-          </p>
         </div>
 
-        {/* Attire Cards */}
-        <div className="space-y-5 sm:space-y-6 md:space-y-8">
-         {/* Ladies Attire */}
-         <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-br from-motif-cream to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
-            
-            <div className="relative bg-motif-cream backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-7 lg:p-9 border border-motif-cream/15 shadow-[0_16px_40px_rgba(0,0,0,0.18)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.22)] hover:border-motif-cream/25 transition-all duration-300">
-              <h4
-                className="scope-one-regular text-base sm:text-lg md:text-xl lg:text-2xl font-normal text-motif-deep mb-4 sm:mb-5 md:mb-6 uppercase tracking-[0.18em] text-center px-2"
-              >
-                Ladies’ Attire
-              </h4>
-   
-              <div className="relative w-full aspect-[4/3] sm:aspect-[3/2] max-w-2xl mx-auto rounded-lg sm:rounded-xl overflow-hidden border border-motif-deep/15 mb-4 sm:mb-6 md:mb-8">
-                <Image
-                  src={siteConfig.dressCode.sponsors.image}
-                  alt={siteConfig.dressCode.sponsors.note}
-                  fill
-                  className="object-contain bg-motif-silver/15 p-2 sm:p-3"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 672px"
-                />
-              </div>
+        <div className="relative group">
+          <div className="absolute -inset-1 bg-gradient-to-br from-motif-cream to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
+          <div className="relative bg-motif-cream backdrop-blur-sm rounded-xl sm:rounded-2xl overflow-hidden border border-motif-cream/15 shadow-[0_16px_40px_rgba(0,0,0,0.18)]">
+            {/* Full width of the card; intrinsic height (no crop) */}
+            <button
+              type="button"
+              onClick={() => setGuestAttireLightboxOpen(true)}
+              className="relative block w-full cursor-zoom-in border-0 bg-motif-cream p-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-motif-deep focus-visible:ring-offset-2 focus-visible:ring-offset-motif-cream"
+              aria-label="Open guest attire image to zoom"
+            >
+              <Image
+                src="/Details/newGuestAttire.png"
+                alt="Guest attire palette and inspiration for the wedding motif"
+                width={1148}
+                height={648}
+                className="block h-auto w-full max-w-full"
+                sizes="(max-width: 640px) 100vw, (max-width: 1280px) min(100vw, 1024px), 1280px"
+              />
+              <span className="pointer-events-none absolute bottom-2 right-2 rounded-md bg-motif-deep/80 px-2 py-1 text-[10px] font-medium uppercase tracking-wide text-motif-cream sm:text-xs">
+                Tap to zoom
+              </span>
+            </button>
 
-        <p className="text-center text-xs sm:text-sm md:text-base lg:text-lg font-body text-motif-deep/85 font-light leading-relaxed mb-4 sm:mb-5 md:mb-6 max-w-xl mx-auto px-3">
-          {siteConfig.dressCode.sponsors.note}
-        </p>
-              <div className="flex justify-center gap-2 sm:gap-3 md:gap-4 flex-wrap mb-5 sm:mb-6 md:mb-7 px-2">
-                {siteConfig.dressCode.sponsors.palette.split(',').map((color) => (
-                  <div
-                    key={color}
-                    role="img"
-                    aria-label={`Dress code color swatch ${color}`}
-                    title={color}
-                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full shadow-md border-2 border-white ring-2 ring-motif-deep/15 hover:scale-110 transition-transform duration-300"
-                    style={{ backgroundColor: color }}
-                  />
-                ))}
-              </div>
-              
- 
-              <div className="text-center pt-3 sm:pt-4 border-t border-motif-deep/15 px-3 sm:px-4 space-y-2">
-                <p className="scope-one-regular text-sm sm:text-base md:text-lg lg:text-xl text-motif-deep leading-relaxed uppercase tracking-[0.18em]">
-                  {siteConfig.dressCode.theme}
-                </p>
-                {/* <p className="font-body text-xs sm:text-sm md:text-base text-motif-deep/80 leading-relaxed">
-                  Please avoid shorts, maong jeans, t-shirts, or slippers. Thank you for helping us keep the look polished.
-                </p> */}
-              </div>
-            </div>
-          </div>
-          {/* Gentlemen’s Attire */}
-          <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-br from-motif-cream to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
-            
-            <div className="relative bg-motif-cream backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-7 lg:p-9 border border-motif-cream/15 shadow-[0_16px_40px_rgba(0,0,0,0.18)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.22)] hover:border-motif-cream/25 transition-all duration-300">
-              <h4
-                className="scope-one-regular text-base sm:text-lg md:text-xl lg:text-2xl font-normal text-motif-deep mb-4 sm:mb-5 md:mb-6 uppercase tracking-[0.18em] text-center px-2"
-              >
-                Gentlemen’s Attire
-              </h4>
-   
-              <div className="relative w-full aspect-[4/3] sm:aspect-[3/2] max-w-2xl mx-auto rounded-lg sm:rounded-xl overflow-hidden border border-motif-deep/15 mb-4 sm:mb-6 md:mb-8">
-                <Image
-                  src={siteConfig.dressCode.guests.image}
-                  alt={siteConfig.dressCode.guests.notes}
-                  fill
-                  className="object-contain bg-motif-silver/15 p-2 sm:p-3"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 672px"
-                />
-              </div>
-
-        <p className="text-center text-xs sm:text-sm md:text-base lg:text-lg font-body text-motif-deep/85 font-light leading-relaxed mb-4 sm:mb-5 md:mb-6 max-w-xl mx-auto px-3">
-          {siteConfig.dressCode.guests.notes}
-        </p>
-              <div className="flex justify-center gap-2 sm:gap-3 md:gap-4 flex-wrap mb-5 sm:mb-6 md:mb-7 px-2">
-                {siteConfig.dressCode.guests.palette.split(',').map((color) => (
-                  <div
-                    key={color}
-                    role="img"
-                    aria-label={`Dress code color swatch ${color}`}
-                    title={color}
-                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full shadow-md border-2 border-white ring-2 ring-motif-deep/15 hover:scale-110 transition-transform duration-300"
-                    style={{ backgroundColor: color }}
-                  />
-                ))}
-              </div>
-              
- 
-              <div className="text-center pt-3 sm:pt-4 border-t border-motif-deep/15 px-3 sm:px-4 space-y-2">
-                <p className="scope-one-regular text-sm sm:text-base md:text-lg lg:text-xl text-motif-deep leading-relaxed uppercase tracking-[0.18em]">
-                  {siteConfig.dressCode.theme}
-                </p>
-                {/* <p className="font-body text-xs sm:text-sm md:text-base text-motif-deep/80 leading-relaxed">
-                  Please avoid shorts, maong jeans, t-shirts, or slippers. Thank you for helping us keep the look polished.
-                </p> */}
-              </div>
+            <div
+              className={`${cormorant.className} space-y-4 sm:space-y-5 px-4 py-5 text-motif-deep/90 text-sm sm:px-6 sm:py-6 sm:text-base md:px-8 md:py-8 md:text-lg leading-relaxed max-w-3xl mx-auto text-center`}
+            >
+              <p>
+                We invite you to join us in elegant attire that will complement our wedding motif. To help create a harmonious celebration, we encourage you to draw inspiration from our palette of Pastel Pinks, Pastel Blues, Lilacs and Pastel Florals for ladies, and mix and match from the shades of Pebble Gray, Navy Blue, and Cream for the gentlemen.
+              </p>
+              <p>
+                While these looks are for inspiration, we want you to showcase your own personal style. We kindly ask that you favor these tones over bright neons and please reserve plain white, ivory and cream for the bride.
+              </p>
             </div>
           </div>
         </div>
@@ -888,6 +833,88 @@ export function Details() {
               </div>
             </div>
           </div>
+        </div>
+      )}
+
+      {/* Guest attire — full-screen zoom */}
+      {guestAttireLightboxOpen && (
+        <div
+          className="fixed inset-0 z-[60] flex flex-col bg-motif-deep/95 backdrop-blur-md"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Guest attire zoom view"
+          onClick={() => setGuestAttireLightboxOpen(false)}
+        >
+          <div
+            className="flex shrink-0 items-center justify-between gap-2 border-b px-3 py-2 sm:px-4"
+            style={{ borderColor: "var(--color-motif-cream)", backgroundColor: "rgba(12, 30, 20, 0.92)" }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <span className={`${cinzel.className} text-sm uppercase tracking-[0.12em] text-motif-cream`}>
+              Guest attire
+            </span>
+            <div className="flex items-center gap-1 sm:gap-2">
+              <button
+                type="button"
+                aria-label="Zoom out"
+                className="rounded-lg p-2 text-motif-cream transition-colors hover:bg-white/10 disabled:opacity-40"
+                disabled={guestAttireZoom <= 1}
+                onClick={() => setGuestAttireZoom((z) => Math.max(1, z - 0.25))}
+              >
+                <ZoomOut className="h-5 w-5" />
+              </button>
+              <span className="min-w-[3.5ch] text-center text-xs tabular-nums text-motif-cream/80">
+                {Math.round(guestAttireZoom * 100)}%
+              </span>
+              <button
+                type="button"
+                aria-label="Zoom in"
+                className="rounded-lg p-2 text-motif-cream transition-colors hover:bg-white/10 disabled:opacity-40"
+                disabled={guestAttireZoom >= 3}
+                onClick={() => setGuestAttireZoom((z) => Math.min(3, z + 0.25))}
+              >
+                <ZoomIn className="h-5 w-5" />
+              </button>
+              <button
+                type="button"
+                aria-label="Close"
+                className="ml-1 rounded-lg p-2 text-motif-cream transition-colors hover:bg-white/10"
+                onClick={() => setGuestAttireLightboxOpen(false)}
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+          </div>
+          <div
+            className="min-h-0 flex-1 overflow-auto overscroll-contain touch-pan-x touch-pan-y"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex min-h-full w-full items-start justify-center p-2 sm:p-4">
+              <div
+                className="transition-transform duration-200 ease-out will-change-transform"
+                style={{
+                  transform: `scale(${guestAttireZoom})`,
+                  transformOrigin: "center top",
+                }}
+              >
+                <Image
+                  src="/Details/newGuestAttire.png"
+                  alt="Guest attire palette and inspiration for the wedding motif"
+                  width={1148}
+                  height={648}
+                  className="h-auto w-full max-w-[min(100vw-2rem,1148px)] select-none"
+                  sizes="100vw"
+                  priority
+                  onDoubleClick={() =>
+                    setGuestAttireZoom((z) => (z > 1 ? 1 : 2))
+                  }
+                />
+              </div>
+            </div>
+          </div>
+          <p className="shrink-0 bg-black/30 px-3 py-2 text-center text-[11px] text-motif-cream/70 sm:text-xs">
+            Scroll to pan when zoomed · double-tap image to reset or zoom · tap outside to close
+          </p>
         </div>
       )}
      
