@@ -11,12 +11,12 @@ interface LoadingScreenProps {
 // motif: "#5B6655, #9CAA99, #ECE5DB, #C4D1E2, #8799A7, #A9A9A9",
 // Countdown boxes with color photos - numbers show days, hours, minutes
 const COUNTDOWN_BOXES = [
-  { src: '/frontboxes/box (3).jpg' },
-  { src: '/frontboxes/box (2).jpg' },
-  { src: '/frontboxes/box (1).jpg' },
+  { src: '/frontboxes/box (4).jpg' },
+  { src: '/frontboxes/box (5).jpg' },
+  { src: '/frontboxes/box (6).jpg' },
 ];
 
-const MAIN_BW_IMAGE = '/frontboxes/front.jpg';
+const MAIN_BW_IMAGE = '/mobile-background/couple (13).jpg';
 const STAGGER_DELAY_MS = 4000; // Each image appears every 4 seconds
 const BOX_TRANSITION_MS = 1200; // Slow, smooth transition
 const TOTAL_DURATION_MS = COUNTDOWN_BOXES.length * STAGGER_DELAY_MS + 3000;
@@ -228,15 +228,14 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
                 {/* Bold debut date number + label - centered at bottom */}
                 <div className="absolute bottom-2 inset-x-0 sm:bottom-3 flex flex-col items-center">
                   <span
-                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black select-none leading-none drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
+                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black select-none leading-none drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] text-white"
                     style={{
                       fontFamily: 'var(--font-granika), sans-serif',
-                      color: 'var(--color-motif-cream)',
                     }}
                   >
                     {countdownNumbers[i]}
                   </span>
-                  <span className="text-[8px] sm:text-[9px] tracking-widest uppercase mt-0.5" style={{ color: 'color-mix(in srgb, var(--color-motif-soft) 85%, transparent)' }}>
+                  <span className="text-[8px] sm:text-[9px] tracking-widest uppercase mt-0.5 text-white">
                     {countdownLabels[i]}
                   </span>
                 </div>
