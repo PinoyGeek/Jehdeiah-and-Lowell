@@ -35,7 +35,7 @@ export function LoveStory() {
         layout="image-left"
         isFirst={true}
         // title="First Met (2014)"
-        imageSrc="/mobile-background/couple (1).jpg"
+        imageSrc="/mobile-background/couple (6).jpg"
         text={
           <>
             <p className="mb-4">
@@ -50,7 +50,7 @@ export function LoveStory() {
       <StorySection
         theme="dark"
         layout="image-right"
-        imageSrc="/mobile-background/couple (2).jpg"
+        imageSrc="/mobile-background/couple (7).jpg"
         // title="Became a Couple (2019)"
         text={
           <>
@@ -66,7 +66,7 @@ export function LoveStory() {
         theme="light"
         layout="image-left"
         isLast={true}
-        imageSrc="/mobile-background/couple (3).jpg"
+        imageSrc="/mobile-background/couple (8).jpg"
         // title="The Proposal (2025)"
         text={
           <>
@@ -82,7 +82,7 @@ export function LoveStory() {
       <StorySection
         theme="dark"
         layout="image-right"
-        imageSrc="/mobile-background/couple (4).jpg"
+        imageSrc="/mobile-background/couple (9).jpg"
         // title="Became a Couple (2019)"
         text={
           <>
@@ -98,7 +98,7 @@ export function LoveStory() {
         theme="light"
         layout="image-left"
         isLast={true}
-        imageSrc="/mobile-background/couple (5).jpg"
+        imageSrc="/mobile-background/couple (10).jpg"
         // title="The Proposal (2025)"
         text={
           <>

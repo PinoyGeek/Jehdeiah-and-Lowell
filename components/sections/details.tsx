@@ -44,11 +44,10 @@ export function Details() {
   const [rotationOffset, setRotationOffset] = useState(0)
   
   const coupleImages = [
-    "/mobile-background/couple (1).jpg",
-    "/mobile-background/couple (2).jpg",
-    "/mobile-background/couple (3).jpg",
-    "/mobile-background/couple (4).jpg",
-
+    "/frontboxes/box (6).jpg",
+    "/frontboxes/box (5).jpg",
+    "/frontboxes/box (4).jpg",
+    "/frontboxes/box (3).jpg",
   ]
 
   const receptionImages = [
