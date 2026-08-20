@@ -26,7 +26,8 @@ export function CoupleVideo() {
   const [hasClicked, setHasClicked] = useState(false)
   const playerRef = useRef<any>(null)
   const iframeRef = useRef<HTMLIFrameElement>(null)
-  const { pauseMusic, resumeMusic } = useAudio()
+  const { registerVideoPlayer, unregisterVideoPlayer, onVideoPlay, onVideoPauseOrEnd, isVideoActive } = useAudio()
+  const playerId = "couple-video"
   // https://youtu.be/YHMatmzn_1A
   // YouTube video ID
   const videoId = "YHMatmzn_1A"
@@ -50,9 +51,15 @@ export function CoupleVideo() {
       if (window.YT && window.YT.Player && iframeRef.current) {
         playerRef.current = new window.YT.Player(iframeRef.current, {
           events: {
-            onReady: (_event: any) => {
-              // Pause background music when video is ready
-              pauseMusic()
+            onReady: (event: any) => {
+              registerVideoPlayer(playerId, event.target)
+              if (isVideoActive(playerId)) {
+                event.target.playVideo?.()
+                onVideoPlay(playerId)
+              } else {
+                event.target.pauseVideo?.()
+                onVideoPauseOrEnd(playerId)
+              }
             },
             onStateChange: (event: any) => {
               // YouTube player states:
@@ -63,12 +70,10 @@ export function CoupleVideo() {
               // 3 (buffering)
               // 5 (video cued)
               
-              if (event.data === 1) {
-                // Video is playing - pause background music
-                pauseMusic()
-              } else if (event.data === 2 || event.data === 0) {
-                // Video is paused or ended - resume background music
-                resumeMusic()
+              if (event.data === 1 || event.data === 3) {
+                onVideoPlay(playerId)
+              } else if (event.data === 2 || event.data === 0 || event.data === 5) {
+                onVideoPauseOrEnd(playerId)
               }
             },
           },
@@ -81,13 +86,17 @@ export function CoupleVideo() {
       if (window.YT && window.YT.Player) {
         initPlayer()
       } else {
-        // Otherwise wait for API to load
-        window.onYouTubeIframeAPIReady = initPlayer
+        const previousReady = window.onYouTubeIframeAPIReady
+        window.onYouTubeIframeAPIReady = () => {
+          previousReady?.()
+          initPlayer()
+        }
       }
     }, 100)
 
     return () => {
       clearTimeout(timer)
+      unregisterVideoPlayer(playerId)
       if (playerRef.current && playerRef.current.destroy) {
         try {
           playerRef.current.destroy()
@@ -96,13 +105,37 @@ export function CoupleVideo() {
         }
       }
     }
-  }, [hasClicked, pauseMusic, resumeMusic, videoId])
+  }, [hasClicked, registerVideoPlayer, unregisterVideoPlayer, onVideoPlay, onVideoPauseOrEnd, isVideoActive, videoId, playerId])
+
+  const pauseThisPlayer = () => {
+    try {
+      playerRef.current?.mute?.()
+      playerRef.current?.pauseVideo?.()
+    } catch {
+      // Player may not be ready yet
+    }
+    const iframe = iframeRef.current
+    if (iframe?.contentWindow) {
+      try {
+        iframe.contentWindow.postMessage(
+          JSON.stringify({ event: "command", func: "mute", args: [] }),
+          "*"
+        )
+        iframe.contentWindow.postMessage(
+          JSON.stringify({ event: "command", func: "pauseVideo", args: [] }),
+          "*"
+        )
+      } catch {
+        // Ignore cross-frame errors
+      }
+    }
+  }
 
   // Handle thumbnail click - show iframe with autoplay
   const handleThumbnailClick = () => {
     setHasClicked(true)
-    // Pause music immediately when user clicks
-    pauseMusic()
+    registerVideoPlayer(playerId, { pauseVideo: pauseThisPlayer, mute: pauseThisPlayer })
+    onVideoPlay(playerId)
   }
 
   return (

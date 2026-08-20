@@ -4,7 +4,7 @@ import { useEffect } from "react"
 import { useAudio } from "@/contexts/audio-context"
 
 const BackgroundMusic = () => {
-  const { audioRef } = useAudio()
+  const { audioRef, isVideoPlaying } = useAudio()
 
   useEffect(() => {
     const audioEl = audioRef.current
@@ -20,10 +20,23 @@ const BackgroundMusic = () => {
     }
 
     const handleUserInteraction = () => {
-      audioEl.play().then(() => {
-        document.removeEventListener("click", handleUserInteraction)
-        document.removeEventListener("touchstart", handleUserInteraction)
-      }).catch((error) => {
+      document.removeEventListener("click", handleUserInteraction)
+      document.removeEventListener("touchstart", handleUserInteraction)
+
+      if (isVideoPlaying()) {
+        const wasMuted = audioEl.muted
+        audioEl.muted = true
+        audioEl.play().then(() => {
+          audioEl.pause()
+          audioEl.muted = wasMuted
+        }).catch((error) => {
+          audioEl.muted = wasMuted
+          console.log("Playback blocked:", error)
+        })
+        return
+      }
+
+      audioEl.play().catch((error) => {
         console.log("Playback blocked:", error)
       })
     }
@@ -41,7 +54,7 @@ const BackgroundMusic = () => {
       document.removeEventListener("click", handleUserInteraction)
       document.removeEventListener("touchstart", handleUserInteraction)
     }
-  }, [audioRef])
+  }, [audioRef, isVideoPlaying])
 
   return (
     <audio

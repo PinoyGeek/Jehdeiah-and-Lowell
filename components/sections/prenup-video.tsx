@@ -30,7 +30,8 @@ export function PrenupVideo() {
   const [hasClicked, setHasClicked] = useState(false)
   const playerRef = useRef<any>(null)
   const iframeRef = useRef<HTMLIFrameElement>(null)
-  const { pauseMusic, resumeMusic } = useAudio()
+  const { registerVideoPlayer, unregisterVideoPlayer, onVideoPlay, onVideoPauseOrEnd, isVideoActive } = useAudio()
+  const playerId = "prenup-video"
   // https://youtu.be/AQMHC4MicRQ
   const videoId = "AQMHC4MicRQ"
   const brideName = siteConfig.couple.brideNickname || siteConfig.couple.bride
@@ -53,14 +54,21 @@ export function PrenupVideo() {
       if (window.YT && window.YT.Player && iframeRef.current) {
         playerRef.current = new window.YT.Player(iframeRef.current, {
           events: {
-            onReady: (_event: any) => {
-              pauseMusic()
+            onReady: (event: any) => {
+              registerVideoPlayer(playerId, event.target)
+              if (isVideoActive(playerId)) {
+                event.target.playVideo?.()
+                onVideoPlay(playerId)
+              } else {
+                event.target.pauseVideo?.()
+                onVideoPauseOrEnd(playerId)
+              }
             },
             onStateChange: (event: any) => {
-              if (event.data === 1) {
-                pauseMusic()
-              } else if (event.data === 2 || event.data === 0) {
-                resumeMusic()
+              if (event.data === 1 || event.data === 3) {
+                onVideoPlay(playerId)
+              } else if (event.data === 2 || event.data === 0 || event.data === 5) {
+                onVideoPauseOrEnd(playerId)
               }
             },
           },
@@ -82,6 +90,7 @@ export function PrenupVideo() {
 
     return () => {
       clearTimeout(timer)
+      unregisterVideoPlayer(playerId)
       if (playerRef.current && playerRef.current.destroy) {
         try {
           playerRef.current.destroy()
@@ -90,11 +99,36 @@ export function PrenupVideo() {
         }
       }
     }
-  }, [hasClicked, pauseMusic, resumeMusic, videoId])
+  }, [hasClicked, registerVideoPlayer, unregisterVideoPlayer, onVideoPlay, onVideoPauseOrEnd, isVideoActive, videoId, playerId])
+
+  const pauseThisPlayer = () => {
+    try {
+      playerRef.current?.mute?.()
+      playerRef.current?.pauseVideo?.()
+    } catch {
+      // Player may not be ready yet
+    }
+    const iframe = iframeRef.current
+    if (iframe?.contentWindow) {
+      try {
+        iframe.contentWindow.postMessage(
+          JSON.stringify({ event: "command", func: "mute", args: [] }),
+          "*"
+        )
+        iframe.contentWindow.postMessage(
+          JSON.stringify({ event: "command", func: "pauseVideo", args: [] }),
+          "*"
+        )
+      } catch {
+        // Ignore cross-frame errors
+      }
+    }
+  }
 
   const handleThumbnailClick = () => {
     setHasClicked(true)
-    pauseMusic()
+    registerVideoPlayer(playerId, { pauseVideo: pauseThisPlayer, mute: pauseThisPlayer })
+    onVideoPlay(playerId)
   }
 
   return (
