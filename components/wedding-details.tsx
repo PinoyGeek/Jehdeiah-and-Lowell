@@ -54,14 +54,14 @@ export function WeddingDetails() {
             <div>
               <label className="text-sm font-medium text-[#6B7280] block mb-1">Groom</label>
               <p className="text-lg font-semibold text-[#111827]">
-                {siteConfig.couple.groomName}
+                {siteConfig.couple.groom}
               </p>
               <p className="text-sm text-[#6B7280]">"{siteConfig.couple.groomNickname}"</p>
             </div>
             <div className="border-t border-[#E5E7EB] pt-4">
               <label className="text-sm font-medium text-[#6B7280] block mb-1">Bride</label>
               <p className="text-lg font-semibold text-[#111827]">
-                {siteConfig.couple.brideName}
+                {siteConfig.couple.bride}
               </p>
               <p className="text-sm text-[#6B7280]">"{siteConfig.couple.brideNickname}"</p>
             </div>
@@ -81,14 +81,14 @@ export function WeddingDetails() {
               <Calendar className="h-5 w-5 text-[#6B7280] mt-0.5 flex-shrink-0" />
               <div>
                 <label className="text-sm font-medium text-[#6B7280] block">Date</label>
-                <p className="text-[#111827] font-medium">{siteConfig.weddingDate}</p>
+                <p className="text-[#111827] font-medium">{siteConfig.wedding.date}</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
               <Clock className="h-5 w-5 text-[#6B7280] mt-0.5 flex-shrink-0" />
               <div>
                 <label className="text-sm font-medium text-[#6B7280] block">Time</label>
-                <p className="text-[#111827] font-medium">{siteConfig.time}</p>
+                <p className="text-[#111827] font-medium">{siteConfig.wedding.time}</p>
               </div>
             </div>
           </div>
@@ -109,8 +109,8 @@ export function WeddingDetails() {
             <div className="flex items-start gap-3">
               <MapPin className="h-5 w-5 text-[#6B7280] mt-0.5 flex-shrink-0" />
               <div>
-                <p className="text-[#111827] font-medium">{siteConfig.ceremony.venueName}</p>
-                <p className="text-sm text-[#6B7280] mt-1">{siteConfig.ceremony.address}</p>
+                <p className="text-[#111827] font-medium">{siteConfig.ceremony.location}</p>
+                <p className="text-sm text-[#6B7280] mt-1">{siteConfig.ceremony.venue}</p>
               </div>
             </div>
             {siteConfig.ceremony.googleMapsUrl && (
