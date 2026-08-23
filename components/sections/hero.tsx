@@ -14,9 +14,7 @@ const desktopImages: string[] = [
   '/desktop-background/couple (9).jpg',
   '/desktop-background/couple (10).jpg',
   '/desktop-background/couple (11).jpg',
-  '/desktop-background/couple (1).jpg',
-  '/desktop-background/couple (2).jpg',
-  '/desktop-background/couple (3).jpg',
+
 ];
 
 const mobileImages: string[] = [
@@ -35,11 +33,7 @@ const mobileImages: string[] = [
   '/mobile-background/couple (12).jpg',
   '/mobile-background/couple (13).jpg',
   '/mobile-background/couple (14).jpg',
-  '/mobile-background/couple (1).jpg',
-  '/mobile-background/couple (2).jpg',
-  '/mobile-background/couple (3).jpg',
-  '/mobile-background/couple (4).jpg',
-  '/mobile-background/couple (5).jpg',
+
 ];
 
 const SHOW_BUTTERFLIES = false
