@@ -26,6 +26,12 @@ const cinzel = Cinzel({
 })
 
 const galleryItems = [
+  { image: "/mobile-background/couple (15).jpg", text: " " },
+  { image: "/mobile-background/couple (16).jpg", text: " " },
+  { image: "/mobile-background/couple (17).jpg", text: " " },
+  { image: "/mobile-background/couple (18).jpg", text: " " },
+  { image: "/mobile-background/couple (19).jpg", text: " " },
+  { image: "/mobile-background/couple (20).jpg", text: " " },
   { image: "/mobile-background/couple (6).jpg", text: " " },
   { image: "/mobile-background/couple (7).jpg", text: " " },
   { image: "/mobile-background/couple (8).jpg", text: " " },
