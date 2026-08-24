@@ -202,7 +202,7 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
                   <div className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 rounded-full flex items-center justify-center transition-all duration-300 ${focusedField === 'message' ? 'scale-110' : ''}`} style={{ backgroundColor: 'color-mix(in srgb, var(--color-motif-deep) 13%, transparent)' }}>
                     <MessageCircle className="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-4 md:w-4" style={{ color: MSG_COLOR }} />
                   </div>
-                  Your Message
+                  Your Message 
                 </label>
                 {messageValue && (
                   <span className={`${cormorant.className} text-[10px] sm:text-xs transition-colors ${messageValue.length > 500 ? 'text-red-500' : ''}`} style={messageValue.length <= 500 ? { color: MSG_COLOR, opacity: 0.6 } : undefined}>
